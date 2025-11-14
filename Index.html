@@ -88,18 +88,18 @@
     <section class="form">
       <div class="container-lg">
         <h2 class="mb-5 text-center">Booking Form</h2>
-        <form class="row g-3">
+        <form class="row g-3 p-4">
           <div class="col-md-4">
             <label for="inputname4" class="form-label">Name</label>
-            <input type="text" class="form-control" id="inputname4" placeholder="Enter your name" />
+            <input type="text" class="form-control w-85" id="inputname4" placeholder="Enter your name" />
           </div>
           <div class="col-md-4">
             <label for="inputNumber" class="form-label">Mobile</label>
-            <input type="number" class="form-control" id="inputNumber" placeholder="Enter mobile" />
+            <input type="number" class="form-control w-85" id="inputNumber" placeholder="Enter mobile" />
           </div>
           <div class="col-md-4">
             <label for="serviceSelect" class="form-label">Service</label>
-            <select id="serviceSelect" class="form-select" aria-label="Select your service">
+            <select id="serviceSelect" class="form-select w-85" aria-label="Select your service">
               <option value="" selected disabled>Select your service</option>
               <option value="oneway">One-way Trip</option>
               <option value="roundtrip">Round Trip</option>
@@ -108,17 +108,17 @@
           </div>
           <div class="col-md-4">
             <label for="inputCity" class="form-label">Pickup Location</label>
-            <input type="text" class="form-control" id="inputCity" placeholder="Enter pickup location" />
+            <input type="text" class="form-control w-85" id="inputCity" placeholder="Enter pickup location" />
           </div>
           <div class="col-md-4">
             <label for="inputState" class="form-label">Drop Location</label>
-            <input type="text" class="form-control" id="inputState" placeholder="Enter drop location" />
+            <input type="text" class="form-control w-85" id="inputState" placeholder="Enter drop location" />
           </div>
           <div class="col-md-4">
             <label for="inputDate" class="form-label">Pickup Date & Time</label>
-            <input type="datetime-local" class="form-control" id="inputDate" />
+            <input type="datetime-local" class="form-control w-85" id="inputDate" />
           </div>
-          <div class="col-12">
+          <div class="col text-center">
             <button type="submit" class="btn" id="btn">Check Fare</button>
           </div>
         </form>
