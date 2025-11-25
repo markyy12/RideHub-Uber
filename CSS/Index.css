@@ -18,6 +18,43 @@ body {
   border-radius: 5px;
   margin-left: 20px;
   text-align: center;
+  animation: blink 2s linear 1s infinite both;
+}
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+.navbar-brand {
+  animation: logo 0.8s infinite both;
+}
+@keyframes logo {
+  0%,
+  100% {
+    transform: translateX(0);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
 }
 .btnn:hover {
   background-color: #f1f1f1;
@@ -50,54 +87,7 @@ body {
   color: #555;
   max-width: 500px;
 }
-.star {
-  position: absolute;
-  background-color: #0aac83;
-  border-radius: 50%;
-  animation: twinkle 3s infinite linear;
-  overflow: hidden;
-  opacity: .8;
-}
-.star:nth-child(1) {
-  width: 2cm;
-  height: 2cm;
-  left: 20%;
-  animation-delay: 0s;
-}
-.star:nth-child(2) {
-  width: 3cm;
-  height: 3cm;
-  left: 20%;
-  animation-delay: 1s;
-}
-.star:nth-child(3) {
-  width: 1cm;
-  height: 1cm;
-  left: 40%;
-  animation-delay: 2s;
-}
-.star:nth-child(4) {
-  width: 2cm;
-  height: 2cm;
-  left: 40%;
-  animation-delay: 3s;
-}
-.star:nth-child(5) {
-  width: 3cm;
-  height: 3cm;
-  left: 40%;
-  animation-delay: 4s;
-}
-@keyframes twinkle {
-  0% {
-    transform: translateY(400px) scale(0);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(-10px) scale(1);
-    opacity: 0;
-  }
-}
+
 .button {
   text-decoration: none;
   padding: 10px 20px;
@@ -145,7 +135,52 @@ section.form {
   background-color: rgb(61, 60, 60);
   margin-top: 30px;
   border-radius: 10px;
+  position: relative;
 }
+
+/*popup */
+
+.popup {
+  background-color: #fff;
+  padding: 0 30px 30px;
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  border-radius: 8px;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+.open-popup {
+  top: 50%;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup h2 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+.popup p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+.popup button {
+  font-size: 1.2rem;
+  background-color: #0aac83;
+  border: none;
+  padding: 5px 100px;
+  border-radius: 20px;
+  color: #fff;
+  margin-top: 20px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.popup button:hover {
+  background-color: #0aac83;
+}
+/*popup */
 section.form .container-lg {
   padding: 0;
 }
@@ -278,16 +313,19 @@ select {
 .package p {
   font-weight: bold;
 }
+.view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #viewBtn {
   text-decoration: none;
   padding: 10px 20px;
   background-color: transarent;
   color: #000;
   border-radius: 5px;
-  margin-top: 40px;
   text-align: center;
   display: inline-block;
-  margin-left: 45%;
   box-shadow: inset 0 0 0 0 #000;
   transition: 0.7s;
   border: 1px solid #000;
@@ -321,7 +359,6 @@ select {
 }
 .vehicle img:hover {
   transform: scale(0.9);
-  
 }
 .vehicle .col {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -336,14 +373,14 @@ footer {
   line-height: 1.6;
   font-size: 1.2rem;
 }
-.text-justify{
+.text-justify {
   width: 100%;
   text-align: justify;
 }
-footer hr{
-  border:1px solid #000;
+footer hr {
+  border: 1px solid #000;
 }
-footer hr.small{
+footer hr.small {
   margin: 20px 0;
 }
 footer h6 {
@@ -357,25 +394,25 @@ footer a {
 footer a:hover {
   color: #7e7979;
 }
-.footer-links{
+.footer-links {
   list-style-type: none;
   padding-left: 0;
 }
-.footer-links li{
+.footer-links li {
   display: block;
 }
-.footer-links.inline li{
+.footer-links.inline li {
   display: inline-block;
 }
-footer .social-icons{
+footer .social-icons {
   text-align: right;
 }
-footer .social-icons a{
+footer .social-icons a {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  margin-left: 6px; 
-  margin-right: 0; 
+  margin-left: 6px;
+  margin-right: 0;
   border-radius: 100%;
   background-color: #000;
   color: #fff;
@@ -384,74 +421,72 @@ footer .social-icons a{
   margin: 0;
 }
 
-@media (max-width:991px) {
-  footer [class^=col-]{
+@media (max-width: 991px) {
+  footer [class^="col-"] {
     margin-bottom: 30px;
   }
 }
-@media (max-width:767px) {
-  footer{
+@media (max-width: 767px) {
+  footer {
     padding-bottom: 0;
   }
-  footer .copyright-text, footer .social-icons{
+  footer .copyright-text,
+  footer .social-icons {
     text-align: center;
   }
 }
-.social-icons{
+.social-icons {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
-.social-icons li{
+.social-icons li {
   display: inline-block;
   margin-bottom: 4px;
 }
-.social-icons li.title{
+.social-icons li.title {
   font-size: 13px;
   margin-right: 15px;
   font-weight: 700;
   color: #33353d;
   text-transform: uppercase;
 }
-.social-icons a{
- font-size: 16px;
- width: 44px;
- height: 44px;
- text-align: center;
- margin-left: 8px;
- display: inline-block;
- background-color: #f8f9fa;
- border-radius: 8px;
- transition: all .2s linear;
+.social-icons a {
+  font-size: 16px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-left: 8px;
+  display: inline-block;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.2s linear;
 }
-.social-icons.size-sm a{
+.social-icons.size-sm a {
   line-height: 34px;
   height: 34px;
   width: 34px;
   font-size: 14px;
 }
-.social-icons a.linkedin:hover{
+.social-icons a.linkedin:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
 }
-.social-icons a.twitter:hover{
+.social-icons a.twitter:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
 }
-.social-icons a.whatsapp:hover{
+.social-icons a.whatsapp:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
 }
 @media (max-767px) {
-  .social-icons li.title{
+  .social-icons li.title {
     display: block;
     margin-right: 0;
     font-weight: 600;
   }
 }
-
-
-

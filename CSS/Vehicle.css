@@ -18,6 +18,18 @@ body {
   border-radius: 5px;
   margin-left: 20px;
   text-align: center;
+  animation: blink 2s linear 1s infinite both;
+}
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 .btnn:hover {
   background-color: #f1f1f1;
@@ -28,6 +40,31 @@ body {
   font-family: poppins, sans-serif;
   padding: 1rem;
 }
+.navbar-brand {
+  animation: logo 0.8s infinite both;
+}
+@keyframes logo {
+  0%,
+  100% {
+    transform: translateX(0);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
 
 .vehicles {
   background-color: #f8f9fa;
@@ -36,27 +73,27 @@ body {
   justify-content: center;
   align-items: center;
 }
-.vehicles h1{
-    font-size: 3rem;
+.vehicles h1 {
+  font-size: 3rem;
 }
-.flex{
+.flex {
   width: 130px;
   display: flex;
-  justify-content:space-between ;
+  justify-content: space-between;
   align-items: center;
   margin: auto;
   gap: 5px;
 }
-.flex a{
+.flex a {
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
   color: #000;
 }
-.flex p{
+.flex p {
   margin-top: 8px;
 }
-.flex #flex{
+.flex #flex {
   color: #0aac83;
   cursor: default;
 }
@@ -83,13 +120,11 @@ body {
 }
 .vehicle img:hover {
   transform: scale(0.9);
-  
 }
 .vehicle .col {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
-
 
 footer {
   background-color: #f8f9fa;
@@ -99,14 +134,14 @@ footer {
   line-height: 1.6;
   font-size: 1.2rem;
 }
-.text-justify{
+.text-justify {
   width: 100%;
   text-align: justify;
 }
-footer hr{
-  border:1px solid #000;
+footer hr {
+  border: 1px solid #000;
 }
-footer hr.small{
+footer hr.small {
   margin: 20px 0;
 }
 footer h6 {
@@ -120,25 +155,25 @@ footer a {
 footer a:hover {
   color: #7e7979;
 }
-.footer-links{
+.footer-links {
   list-style-type: none;
   padding-left: 0;
 }
-.footer-links li{
+.footer-links li {
   display: block;
 }
-.footer-links.inline li{
+.footer-links.inline li {
   display: inline-block;
 }
-footer .social-icons{
+footer .social-icons {
   text-align: right;
 }
-footer .social-icons a{
+footer .social-icons a {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  margin-left: 6px; 
-  margin-right: 0; 
+  margin-left: 6px;
+  margin-right: 0;
   border-radius: 100%;
   background-color: #000;
   color: #fff;
@@ -146,69 +181,70 @@ footer .social-icons a{
 .copyright-text {
   margin: 0;
 }
-@media (max-width:991px) {
-  footer [class^=col-]{
+@media (max-width: 991px) {
+  footer [class^="col-"] {
     margin-bottom: 30px;
   }
 }
-@media (max-width:767px) {
-  footer{
+@media (max-width: 767px) {
+  footer {
     padding-bottom: 0;
   }
-  footer .copyright-text, footer .social-icons{
+  footer .copyright-text,
+  footer .social-icons {
     text-align: center;
   }
 }
-.social-icons{
+.social-icons {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
-.social-icons li{
+.social-icons li {
   display: inline-block;
   margin-bottom: 4px;
 }
-.social-icons li.title{
+.social-icons li.title {
   font-size: 13px;
   margin-right: 15px;
   font-weight: 700;
   color: #33353d;
   text-transform: uppercase;
 }
-.social-icons a{
- font-size: 16px;
- width: 44px;
- height: 44px;
- text-align: center;
- margin-left: 8px;
- display: inline-block;
- background-color: #f8f9fa;
- border-radius: 8px;
- transition: all .2s linear;
+.social-icons a {
+  font-size: 16px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-left: 8px;
+  display: inline-block;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.2s linear;
 }
-.social-icons.size-sm a{
+.social-icons.size-sm a {
   line-height: 34px;
   height: 34px;
   width: 34px;
   font-size: 14px;
 }
-.social-icons a.linkedin:hover{
+.social-icons a.linkedin:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
 }
-.social-icons a.twitter:hover{
+.social-icons a.twitter:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
 }
-.social-icons a.whatsapp:hover{
+.social-icons a.whatsapp:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
 }
 @media (max-767px) {
-  .social-icons li.title{
+  .social-icons li.title {
     display: block;
     margin-right: 0;
     font-weight: 600;

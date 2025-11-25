@@ -18,6 +18,18 @@ body {
   border-radius: 5px;
   margin-left: 20px;
   text-align: center;
+  animation: blink 2s linear 1s infinite both;
+}
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 .btnn:hover {
   background-color: #f1f1f1;
@@ -28,6 +40,32 @@ body {
   font-family: poppins, sans-serif;
   padding: 1rem;
 }
+.navbar-brand {
+  animation: logo 0.8s infinite both;
+}
+@keyframes logo {
+  0%,
+  100% {
+    transform: translateX(0);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
 
 .star {
   position: absolute;
