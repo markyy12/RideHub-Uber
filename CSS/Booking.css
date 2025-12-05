@@ -5,19 +5,47 @@
 }
 body {
   font-family: "Poppins", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
-
+/* NAVIGATION */
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
 }
-.btnn {
-  text-decoration: none;
-  padding: 10px 20px;
+.brand {
+  color: #0aac83;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.navbar-nav .nav-link {
+  color: #000;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
   background-color: #0aac83;
   color: #fff;
-  border-radius: 5px;
-  margin-left: 20px;
-  text-align: center;
+  transform: translateY(-2px);
+}
+
+.btnn {
+  display: inline-block;
+  padding: 10px 25px;
+  background: #0aac83;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-left: 1rem;
+  border: none;
+  transition: all 0.3s ease;
   animation: blink 2s linear 1s infinite both;
 }
 @keyframes blink {
@@ -32,121 +60,257 @@ body {
   }
 }
 .btnn:hover {
-  background-color: #f1f1f1;
-  color: #000;
-  border: 1px solid #000;
-}
-#navbarNav {
-  font-family: poppins, sans-serif;
-  padding: 1rem;
-}
-.navbar-brand {
-  animation: logo 0.8s infinite both;
-}
-@keyframes logo {
-  0%,
-  100% {
-    transform: translateX(0);
-    transform-origin: 50% 50%;
-  }
-  15% {
-    transform: translateX(-30px) rotate(-6deg);
-  }
-  30% {
-    transform: translateX(15px) rotate(6deg);
-  }
-  45% {
-    transform: translateX(-15px) rotate(-3.6deg);
-  }
-  60% {
-    transform: translateX(9px) rotate(2.4deg);
-  }
-  75% {
-    transform: translateX(-6px) rotate(-1.2deg);
-  }
-}
-
-
-.star {
-  position: absolute;
   background-color: #0aac83;
-  border-radius: 50%;
-  animation: twinkle 3s infinite linear;
-  overflow: hidden;
-  opacity: .8;
+  box-shadow: inset 0 300px 0 0 #000;
+  color: #fff;
 }
-.star:nth-child(1) {
-  width: 2cm;
-  height: 2cm;
-  left: 20%;
-  animation-delay: 0s;
+
+/*BOOKING*/
+.booking h1 {
+  position: relative;
+  z-index: 3;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+  animation: fadeInDown 0.8s ease-out;
 }
-.star:nth-child(2) {
-  width: 3cm;
-  height: 3cm;
-  left: 20%;
-  animation-delay: 1s;
-}
-.star:nth-child(3) {
-  width: 1cm;
-  height: 1cm;
-  left: 40%;
-  animation-delay: 2s;
-}
-.star:nth-child(4) {
-  width: 2cm;
-  height: 2cm;
-  left: 40%;
-  animation-delay: 3s;
-}
-.star:nth-child(5) {
-  width: 3cm;
-  height: 3cm;
-  left: 40%;
-  animation-delay: 4s;
-}
-@keyframes twinkle {
-  0% {
-    transform: translateY(200px) scale(0);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(-10px) scale(1);
-    opacity: 0;
-  }
-}
-.booking {
-  background-color: #f8f9fa;
-  min-height: 400px;
+
+.booking .flex {
+  position: relative;
+  z-index: 3;
   display: flex;
+  gap: 10px;
+  align-items: center;
   justify-content: center;
-  align-items: center;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
 }
-.booking h1{
-    font-size: 3rem;
-}
-.flex{
-  width: 130px;
-  display: flex;
-  justify-content:space-between ;
-  align-items: center;
-  margin: auto;
-  gap: 5px;
-}
-.flex a{
+
+.booking .flex a {
+  color: #333;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.booking .flex a:hover {
+  color: #0aac83;
+  transform: translateY(-2px);
+}
+
+.booking .flex span {
   color: #000;
+  font-weight: 300;
 }
-.flex p{
-  margin-top: 8px;
-}
-.flex #flex{
+.flex #flex {
   color: #0aac83;
   cursor: default;
 }
+/* Uber-style booking Section with Subtle Animation */
+.booking {
+  position: relative;
+  overflow: hidden;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+  color: #333;
+  padding: 60px 0;
+  border-bottom: 1px solid #e9ecef;
+}
 
+/* Uber-style Moving Grid Background */
+.booking::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: moveGrid 20s linear infinite;
+  z-index: 1;
+}
+
+@keyframes moveGrid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(40px, 40px);
+  }
+}
+
+/* Floating Location Dots (Uber-style) */
+.uber-dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.uber-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #3fc1c9;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(63, 193, 201, 0.2);
+  animation: uberDotPulse 2s ease-in-out infinite;
+}
+
+.uber-dot:nth-child(1) {
+  top: 30%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.uber-dot:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  background: #fc5185;
+  box-shadow: 0 0 0 4px rgba(252, 81, 133, 0.2);
+  animation-delay: 0.5s;
+}
+
+.uber-dot:nth-child(3) {
+  top: 75%;
+  left: 40%;
+  background: #364f6b;
+  box-shadow: 0 0 0 4px rgba(54, 79, 107, 0.2);
+  animation-delay: 1s;
+}
+
+.uber-dot:nth-child(4) {
+  top: 20%;
+  left: 65%;
+  background: #43dde6;
+  box-shadow: 0 0 0 4px rgba(67, 221, 230, 0.2);
+  animation-delay: 1.5s;
+}
+
+@keyframes uberDotPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Moving Path Animation */
+.path-line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3fc1c9, transparent);
+  animation: drawPath 3s ease-in-out infinite;
+  z-index: 2;
+}
+
+.path-line:nth-child(1) {
+  top: 40%;
+  left: 10%;
+  width: 30%;
+  animation-delay: 0s;
+}
+
+.path-line:nth-child(2) {
+  top: 70%;
+  left: 60%;
+  width: 25%;
+  animation-delay: 1s;
+}
+
+@keyframes drawPath {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleX(0.8);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scaleX(1);
+  }
+}
+
+/* Uber Car Icon Animation */
+.uber-car-icon {
+  position: absolute;
+  right: 15%;
+  bottom: 20%;
+  color: #3fc1c9;
+  font-size: 24px;
+  animation: uberCarMove 4s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes uberCarMove {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-10px) translateY(-5px);
+  }
+  50% {
+    transform: translateX(-20px) translateY(0);
+  }
+  75% {
+    transform: translateX(-10px) translateY(5px);
+  }
+}
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .booking h1 {
+    font-size: 2.5rem;
+  }
+
+  .booking {
+    min-height: 200px;
+    padding: 40px 0;
+  }
+
+  .booking::before {
+    background-size: 30px 30px;
+  }
+
+  .uber-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/*FORM*/
 section.form {
   clear: both;
   width: 95%;
@@ -179,7 +343,9 @@ select {
   border-radius: 5px;
   outline-color: #0aac83;
 }
-#btn {
+#continueToPaymentBtn,
+#showMapBtn,
+#processPaymentBtn,#returnBtn {
   text-decoration: none;
   padding: 10px 20px;
   background-color: #0aac83;
@@ -189,12 +355,308 @@ select {
   box-shadow: inset 0 0 0 0 #000;
   transition: 0.4s;
 }
-#btn:hover {
+#continueToPaymentBtn:hover,
+#showMapBtn:hover,
+#processPaymentBtn:hover,#returnBtn:hover {
   box-shadow: inset 0 300px 0 0 #000;
   color: #fff;
   border: 0;
 }
+#backToRideDetailsBtn{
+  color: #fff;
+  border: 1px solid #000;
+  box-shadow: inset 0 0 0 0 #000;
+  transition: 0.4s;
+}
+#backToRideDetailsBtn:hover{
+  box-shadow: inset 0 300px 0 0 #0aac83;
+  color: #fff;
+  border: 0;
+}
+/*PAYMENT METHOD*/
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: none;
+}
 
+.pac-container {
+  z-index: 1051 !important;
+}
+
+.location-input-container {
+  position: relative;
+}
+
+.location-input-container i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  z-index: 3;
+}
+
+.location-input-container input {
+  padding-left: 40px;
+}
+
+/* Payment Methods Styling */
+.payment-methods {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.payment-option {
+  flex: 1;
+  min-width: 150px;
+}
+
+.payment-option input[type="radio"] {
+  display: none;
+}
+
+.payment-option label {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-option input[type="radio"]:checked + label {
+  border-color: #3fc1c9;
+  background-color: rgba(63, 193, 201, 0.1);
+}
+
+.payment-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.payment-details {
+  display: none;
+  margin-top: 15px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Payment Form */
+.card-input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.card-input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+.card-input-group input {
+  padding-left: 45px;
+}
+
+.card-row {
+  display: flex;
+  gap: 15px;
+}
+
+.card-row .form-group {
+  flex: 1;
+}
+
+/* Mobile Money Options */
+.mobile-money-option {
+  margin-bottom: 10px;
+}
+
+.mobile-money-option label {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-money-option input[type="radio"]:checked + label {
+  border-color: #3fc1c9;
+  background-color: rgba(63, 193, 201, 0.1);
+}
+
+/* Loading Spinner */
+.spinner {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3fc1c9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success Message */
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 30px;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 10px;
+  color: #155724;
+  margin-top: 20px;
+}
+
+.success-message i {
+  font-size: 50px;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+/* Add these styles to your existing Booking.css */
+
+/* Progress Steps */
+.progress-steps {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+  flex: 1;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #dee2e6;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto 10px;
+  border: 3px solid white;
+  transition: all 0.3s ease;
+}
+
+.step.active .step-circle {
+  background: #3fc1c9;
+  color: white;
+  border-color: #3fc1c9;
+}
+
+.step-label {
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.step.active .step-label {
+  color: #3fc1c9;
+  font-weight: 600;
+}
+
+.progress-bar {
+  height: 4px;
+  background: #dee2e6;
+}
+
+.progress-bar .progress-bar {
+  background: #3fc1c9;
+  transition: width 0.3s ease;
+}
+
+/* Ride Summary Card */
+.ride-summary {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ride-summary .card-header {
+  background: linear-gradient(135deg, #0aac83 0%, #0aac83 100%);
+  color: white;
+  border-bottom: none;
+  padding: 15px 20px;
+}
+
+.ride-summary .card-body {
+  padding: 20px;
+}
+
+.ride-summary p {
+  margin-bottom: 10px;
+}
+
+.ride-summary hr {
+  margin: 20px 0;
+  opacity: 0.2;
+}
+
+/* Payment Methods */
+.payment-methods-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-methods {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.payment-option {
+  flex: 1;
+  color: #000;
+}
+
+/*FOOTER*/
 footer {
   background-color: #f8f9fa;
   width: 100%;
@@ -203,14 +665,14 @@ footer {
   line-height: 1.6;
   font-size: 1.2rem;
 }
-.text-justify{
+.text-justify {
   width: 100%;
   text-align: justify;
 }
-footer hr{
-  border:1px solid #000;
+footer hr {
+  border: 1px solid #000;
 }
-footer hr.small{
+footer hr.small {
   margin: 20px 0;
 }
 footer h6 {
@@ -224,25 +686,25 @@ footer a {
 footer a:hover {
   color: #7e7979;
 }
-.footer-links{
+.footer-links {
   list-style-type: none;
   padding-left: 0;
 }
-.footer-links li{
+.footer-links li {
   display: block;
 }
-.footer-links.inline li{
+.footer-links.inline li {
   display: inline-block;
 }
-footer .social-icons{
+footer .social-icons {
   text-align: right;
 }
-footer .social-icons a{
+footer .social-icons a {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  margin-left: 6px; 
-  margin-right: 0; 
+  margin-left: 6px;
+  margin-right: 0;
   border-radius: 100%;
   background-color: #000;
   color: #fff;
@@ -250,73 +712,72 @@ footer .social-icons a{
 .copyright-text {
   margin: 0;
 }
-@media (max-width:991px) {
-  footer [class^=col-]{
+@media (max-width: 991px) {
+  footer [class^="col-"] {
     margin-bottom: 30px;
   }
 }
-@media (max-width:767px) {
-  footer{
+@media (max-width: 767px) {
+  footer {
     padding-bottom: 0;
   }
-  footer .copyright-text, footer .social-icons{
+  footer .copyright-text,
+  footer .social-icons {
     text-align: center;
   }
 }
-.social-icons{
+.social-icons {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
-.social-icons li{
+.social-icons li {
   display: inline-block;
   margin-bottom: 4px;
 }
-.social-icons li.title{
+.social-icons li.title {
   font-size: 13px;
   margin-right: 15px;
   font-weight: 700;
   color: #33353d;
   text-transform: uppercase;
 }
-.social-icons a{
- font-size: 16px;
- width: 44px;
- height: 44px;
- text-align: center;
- margin-left: 8px;
- display: inline-block;
- background-color: #f8f9fa;
- border-radius: 8px;
- transition: all .2s linear;
+.social-icons a {
+  font-size: 16px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-left: 8px;
+  display: inline-block;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.2s linear;
 }
-.social-icons.size-sm a{
+.social-icons.size-sm a {
   line-height: 34px;
   height: 34px;
   width: 34px;
   font-size: 14px;
 }
-.social-icons a.linkedin:hover{
+.social-icons a.instagram:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
 }
-.social-icons a.twitter:hover{
+.social-icons a.twitter:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
 }
-.social-icons a.whatsapp:hover{
+.social-icons a.whatsapp:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
 }
 @media (max-767px) {
-  .social-icons li.title{
+  .social-icons li.title {
     display: block;
     margin-right: 0;
     font-weight: 600;
   }
 }
-
-

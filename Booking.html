@@ -15,11 +15,17 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
     />
+    <!-- Google Maps API -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"
+      async
+      defer
+    ></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white navbar-light ms-sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold fs-3" href="#">RideHub</a>
+        <h2 class="brand">RideHub</h2>
         <button
           class="navbar-toggler"
           type="button"
@@ -34,9 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav px-3 ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="http://127.0.0.1:5501/Index.html"
-                >Home</a
-              >
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"
@@ -44,25 +48,19 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="http://127.0.0.1:5501/About.html"
-                >About us</a
-              >
+              <a class="nav-link" href="About.html">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="http://127.0.0.1:5501/Services.html"
-                >Services</a
-              >
+              <a class="nav-link" href="Services.html">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="http://127.0.0.1:5501/Vehicle.html"
-                >Vehicles</a
-              >
+              <a class="nav-link" href="Vehicle.html">Vehicles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Contact</a>
+              <a class="nav-link" href="Contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a href="" class="btnn">Get started</a>
+              <a href="Register.html" class="btnn">Get started</a>
             </li>
           </ul>
         </div>
@@ -71,10 +69,22 @@
 
     <section class="booking">
       <div class="container-fluid">
-      
-        <h1 class="text-center fw-bold">Booking</h1>
+        <div class="uber-dots">
+          <div class="uber-dot"></div>
+          <div class="uber-dot"></div>
+          <div class="uber-dot"></div>
+          <div class="uber-dot"></div>
+        </div>
+
+        <div class="path-line"></div>
+        <div class="path-line"></div>
+
+        <div class="uber-car-icon">
+          <i class="bi bi-geo-alt-fill"></i>
+        </div>
+        <h1 class="text-center fw-bold">Book Your Ride</h1>
         <div class="flex">
-          <a href="http://127.0.0.1:5501/Index.html">Home</a>
+          <a href="index.html">Home</a>
           <span>></span>
           <a href="" id="flex">Booking</a>
         </div>
@@ -83,136 +93,547 @@
 
     <section class="form">
       <div class="container-lg">
-        <h2 class="mb-5 text-center">Booking Form</h2>
-        <form
-          class="row g-3 p-4"
-          action="https://formspree.io/f/mpweywnj"
-          method="POST"
-        >
-          <div class="col-md-4">
-            <label for="inputname4" class="form-label">Name</label>
-            <input
-              type="text"
-              class="form-control w-85"
-              id="inputname4"
-              placeholder="Enter your name"
-            />
-          </div>
-          <div class="col-md-4">
-            <label for="inputNumber" class="form-label">Mobile</label>
-            <input
-              type="number"
-              class="form-control w-85"
-              id="inputNumber"
-              placeholder="Enter mobile"
-            />
-          </div>
-          <div class="col-md-4">
-            <label for="serviceSelect" class="form-label">Service</label>
-            <select
-              id="serviceSelect"
-              class="form-select w-85"
-              aria-label="Select your service"
+        <h2 class="mb-4 text-center">Ride Booking Form</h2>
+
+        <!-- Progress Steps -->
+        <div class="progress-steps mb-5">
+          <div class="d-flex justify-content-between position-relative">
+            <div class="step active">
+              <div class="step-circle">1</div>
+              <div class="step-label">Ride Details</div>
+            </div>
+            <div class="step">
+              <div class="step-circle">2</div>
+              <div class="step-label">Payment</div>
+            </div>
+            <div class="step">
+              <div class="step-circle">3</div>
+              <div class="step-label">Confirmation</div>
+            </div>
+            <div
+              class="progress-bar position-absolute w-100"
+              style="top: 15px; z-index: -1"
             >
-              <option value="" selected disabled>Select your service</option>
-              <option value="oneway">One-way Trip</option>
-              <option value="roundtrip">Round Trip</option>
-              <option value="packages">Packages</option>
-            </select>
+              <div class="progress" style="height: 4px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 33%"
+                ></div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-4">
-            <label for="inputCity" class="form-label">Pickup Location</label>
-            <input
-              type="text"
-              class="form-control w-85"
-              id="inputCity"
-              placeholder="Enter pickup location"
-            />
+        </div>
+
+        <!-- Ride Details Form -->
+        <div id="rideDetailsSection">
+          <form  action="https://formspree.io/f/mpweywnj"  class="row g-3 p-4" id="rideDetailsForm" method="POST">
+            <div class="col-md-4">
+              <label for="inputname4" class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control w-85"
+                id="inputname4"
+                name="name"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control w-85"
+                id="inputEmail"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="inputNumber" class="form-label">Phone Number</label>
+              <input
+                type="tel"
+                class="form-control w-85"
+                id="inputNumber"
+                name="phone"
+                placeholder="08012345678"
+                required
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="serviceSelect" class="form-label">Service Type</label>
+              <select
+                id="serviceSelect"
+                class="form-select w-85"
+                name="service"
+                aria-label="Select your service"
+                required
+              >
+                <option value="" selected disabled>Select service type</option>
+                <option value="oneway">One-way Trip</option>
+                <option value="roundtrip">Round Trip</option>
+                <option value="airport">Packages Delivery</option>
+                <option value="hourly">Hourly Rental</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label for="vehicleType" class="form-label">Vehicle Type</label>
+              <select
+                id="vehicleType"
+                class="form-select w-85"
+                name="vehicle"
+                required
+              >
+                <option value="" selected disabled>Select vehicle type</option>
+                <option value="economy" data-rate="50">Tricycle (₦50/km)</option>
+                <option value="comfort" data-rate="70">Bike (₦70/km)</option>
+                <option value="suv" data-rate="120">Suzuki (₦200/km)</option>
+                <option value="van" data-rate="150">Suzuki Van (₦150/km)</option>
+                <option value="luxury" data-rate="100">Sedan (₦200/km)</option>
+                <option value="suv" data-rate="120">SUV (₦200/km)</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label for="passengers" class="form-label">Passengers</label>
+              <input
+                type="number"
+                class="form-control w-85"
+                id="passengers"
+                name="passengers"
+                min="1"
+                max="10"
+                value="1"
+                required
+              />
+            </div>
+
+            <!-- Google Maps Enhanced Location Inputs -->
+            <div class="col-md-6">
+              <label for="pickupLocation" class="form-label"
+                >Pickup Location</label
+              >
+              <div class="location-input-container">
+                <i class="bi bi-geo-alt-fill"></i>
+                <input
+                  type="text"
+                  class="form-control w-100"
+                  id="pickupLocation"
+                  name="pickup"
+                  placeholder="Enter pickup location in Kwara State"
+                  required
+                />
+              </div>
+              <div
+                id="pickupSuggestions"
+                class="dropdown-menu"
+                style="display: none"
+              ></div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="dropLocation" class="form-label">Drop Location</label>
+              <div class="location-input-container">
+                <i class="bi bi-geo-alt"></i>
+                <input
+                  type="text"
+                  class="form-control w-100"
+                  id="dropLocation"
+                  name="drop"
+                  placeholder="Enter drop location in Kwara State"
+                  required
+                />
+              </div>
+              <div
+                id="dropSuggestions"
+                class="dropdown-menu"
+                style="display: none"
+              ></div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="inputDate" class="form-label"
+                >Pickup Date & Time</label
+              >
+              <input
+                type="datetime-local"
+                class="form-control w-85"
+                id="inputDate"
+                name="datetime"
+                required
+              />
+            </div>
+
+            <!-- Distance and Fare Information -->
+            <div class="col-12 distance-info text-light" id="distanceInfo">
+              <div class="row">
+                <div class="col-md-3">
+                  <p>
+                    <strong>Distance:</strong> <span id="distance">0 km</span>
+                  </p>
+                </div>
+                <div class="col-md-3">
+                  <p>
+                    <strong>Estimated Time:</strong>
+                    <span id="duration">0 mins</span>
+                  </p>
+                </div>
+                <div class="col-md-3">
+                  <p>
+                    <strong>Estimated Fare:</strong> <span id="fare">₦0</span>
+                  </p>
+                </div>
+                <div class="col-md-3">
+                  <!-- <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    id="showMapBtn"
+                  >
+                    <i class="bi bi-map"></i> Show Route
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Google Map Container -->
+            <div class="col-12 map-container" id="mapContainer">
+              <div id="map"></div>
+            </div>
+
+            <div class="col text-center">
+              <button
+                type="submit"
+                class="btn"
+                id="continueToPaymentBtn"
+              >
+                Continue to Payment <i class="bi bi-arrow-right"></i>
+              </button>
+              <p id="result"></p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Payment Section -->
+        <div id="paymentSection" style="display: none">
+          <div class="p-4">
+            <h3 class="mb-4">Payment Details</h3>
+
+            <!-- Ride Summary -->
+            <div class="ride-summary card mb-4">
+              <div class="card-header bg-light">
+                <h5 class="mb-0">Ride Summary</h5>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <p>
+                      <strong>From:</strong> <span id="summaryPickup"></span>
+                    </p>
+                    <p><strong>To:</strong> <span id="summaryDrop"></span></p>
+                    <p>
+                      <strong>Date & Time:</strong>
+                      <span id="summaryDateTime"></span>
+                    </p>
+                  </div>
+                  <div class="col-md-6">
+                    <p>
+                      <strong>Vehicle:</strong>
+                      <span id="summaryVehicle"></span>
+                    </p>
+                    <p>
+                      <strong>Passengers:</strong>
+                      <span id="summaryPassengers"></span>
+                    </p>
+                    <p>
+                      <strong>Distance:</strong>
+                      <span id="summaryDistance"></span>
+                    </p>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-md-6">
+                    <p>
+                      <strong>Base Fare:</strong>
+                      <span id="summaryBaseFare"></span>
+                    </p>
+                    <p><strong>Service Fee:</strong> ₦500</p>
+                  </div>
+                  <div class="col-md-6 text-end">
+                    <h4>
+                      <strong>Total:</strong>
+                      <span id="summaryTotalFare" class="text-primary"></span>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-methods-section">
+              <h5 class="mb-3">Select Payment Method</h5>
+              <div class="payment-methods">
+                <div class="payment-option">
+                  <input
+                    type="radio"
+                    id="paystack"
+                    name="paymentMethod"
+                    value="paystack"
+                    checked
+                  />
+                  <label for="paystack">
+                    <div class="payment-icon">
+                      <i class="bi bi-credit-card text-dark"></i>
+                    </div>
+                    <div class="text-dark">
+                      <h6>Card Payment</h6>
+                      <small>Visa, MasterCard, Verve</small>
+                    </div>
+                  </label>
+                </div>
+
+                <div class="payment-option">
+                  <input
+                    type="radio"
+                    id="transfer"
+                    name="paymentMethod"
+                    value="transfer"
+                  />
+                  <label for="transfer">
+                    <div class="payment-icon">
+                      <i class="bi bi-bank text-dark"></i>
+                    </div>
+                    <div class="text-dark">
+                      <h6>Bank Transfer</h6>
+                      <small>Direct bank transfer</small>
+                    </div>
+                  </label>
+                </div>
+
+                <div class="payment-option">
+                  <input
+                    type="radio"
+                    id="cash"
+                    name="paymentMethod"
+                    value="cash"
+                  />
+                  <label for="cash">
+                    <div class="payment-icon">
+                      <i class="bi bi-cash text-dark"></i>
+                    </div>
+                    <div class="text-dark">
+                      <h6>Cash</h6>
+                      <small>Pay driver in cash</small>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Bank Transfer Details -->
+              <div id="bankTransferDetails" class="payment-details">
+                <h6>Bank Transfer Details</h6>
+                <div class="alert alert-info">
+                  <p><strong>Account Name:</strong> RideHub Nigeria Limited</p>
+                  <p><strong>Bank:</strong> Palmpay</p>
+                  <p><strong>Account Number:</strong> 8068736505</p>
+                  <p>
+                    <strong>Amount:</strong> <span id="transferAmount"></span>
+                  </p>
+                  <p class="mb-0">
+                    <small>Use your booking ID as reference</small>
+                  </p>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="transferConfirmed"
+                  />
+                  <label class="form-check-label text-dark" for="transferConfirmed">
+                    I have made the transfer
+                  </label>
+                </div>
+              </div>
+
+              <!-- Cash Payment Details -->
+              <div id="cashPaymentDetails" class="payment-details">
+                <h6>Cash Payment</h6>
+                <div class="alert alert-warning">
+                  <p>
+                    <strong>Note:</strong> You will pay the driver in cash upon
+                    arrival
+                  </p>
+                  <p>
+                    <strong>Amount to pay:</strong>
+                    <span id="cashAmount"></span>
+                  </p>
+                  <p class="mb-0"><small>Exact change is appreciated</small></p>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="cashConfirmed"
+                  />
+                  <label class="form-check-label text-dark" for="cashConfirmed">
+                    I understand I'll pay the driver in cash
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 text-center">
+              <button
+                type="button"
+                class="btn me-2"
+                id="backToRideDetailsBtn"
+              >
+                <i class="bi bi-arrow-left"></i> Back
+              </button>
+              <button
+                type="button"
+                class="btn"
+                id="processPaymentBtn"
+              >
+                <i class="bi bi-lock"></i> Complete Booking
+              </button>
+            </div>
           </div>
-          <div class="col-md-4">
-            <label for="inputState" class="form-label">Drop Location</label>
-            <input
-              type="text"
-              class="form-control w-85"
-              id="inputState"
-              placeholder="Enter drop location"
-            />
-          </div>
-          <div class="col-md-4">
-            <label for="inputDate" class="form-label">Pickup Date & Time</label>
-            <input
-              type="datetime-local"
-              class="form-control w-85"
-              id="inputDate"
-            />
-          </div>
-          <div class="col text-center">
-            <button type="submit" class="btn" id="btn">Check Fare</button>
-          </div>
-        </form>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="text-center">
+          <div class="spinner" id="loadingSpinner"></div>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+          <i class="bi bi-check-circle-fill"></i>
+          <h3>Booking Confirmed!</h3>
+          <p>Your ride has been successfully booked.</p>
+          <p>
+            <strong>Booking ID:</strong> <span id="bookingId">RH-2025-001</span>
+          </p>
+          <p>You will receive a confirmation email shortly.</p>
+          <button
+            class="btn mt-3"
+            id="returnBtn"
+            onclick="window.location.href='index.html'"
+          >
+            <i class="bi bi-house text-light"></i> Return to Home
+          </button>
+        </div>
       </div>
     </section>
 
     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12.col-md-6">
-            <h2>RideHub</h2>
-            <p class="text-justify">
-              RideHub revolutionizes the way people navigate their daily
-              commutes and spontaneous adventures by seamlessly integrating
-              cutting-edge web Development technologies to deliver a
-              user-friendly platforms that not only matches riders with reliable
-              drivers in real time but also prioritizes safety through advanced
-              geolocation features, eco-friendly ride options, and personalized
-              pricing algorithms, all while fostering a community-driven
-              ecosystem where efficiency meets excitement to transform every
-              journey into an effortless and enjoyable experience.
-            </p>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12.col-md-6">
+              <h2>RideHub</h2>
+              <p class="text-justify">
+                RideHub revolutionizes the way people navigate their daily
+                commutes and spontaneous adventures by seamlessly integrating
+                cutting-edge web Development technologies to deliver a
+                user-friendly platforms that not only matches riders with
+                reliable drivers in real time but also prioritizes safety
+                through advanced geolocation features, eco-friendly ride
+                options, and personalized pricing algorithms, all while
+                fostering a community-driven ecosystem where efficiency meets
+                excitement to transform every journey into an effortless and
+                enjoyable experience.
+              </p>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="About.html">About</a></li>
+                <li><a href="#">Booking</a></li>
+                <li><a href="Services.html">Our Services</a></li>
+                <li><a href="Vehicle.html">Our Vehicles</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <h6>Address</h6>
+              <address>
+                <em>Behind Police Force Barrack, Offa, Kwara State.</em>
+              </address>
+            </div>
           </div>
-          <div class="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
-            <ul class="footer-links">
-              <li><a href="">About</a></li>
-              <li><a href="">Booking</a></li>
-              <li><a href="">Our Services</a></li>
-              <li><a href="">Our Vehicles</a></li>
-            </ul>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <h6>Address</h6>
-            <address>
-              <em>Behind Police Force Barrack, Offa, Kwara State.</em>
-            </address>
+          <hr />
+        </div>
+        <div class="container" id="copy">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">
+                Copyright &copy; 2025 Developed By Markyy & Jamo-Lion
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li>
+                  <a
+                    href="https://www.instagram.com/markyy_ij?igsh=M3RieWtkZnZ6anlh"
+                    class="instagram"
+                    ><i class="bi bi-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com/AIA_ijaiya?t=RV9rd1gFYhQf8jTwtTb9fQ&s=09"
+                    class="twitter"
+                    ><i class="bi bi-twitter-x"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://wa.me/+2348068736505" class="whatsapp"
+                    ><i class="bi bi-whatsapp"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <hr />
-      </div>
-      <div class="container" id="copy">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">
-              Copyright &copy; 2025 Developed By Markyy & Jamo-Lion
-            </p>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li>
-                <a href="" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              </li>
-              <li>
-                <a href="" class="twitter"><i class="bi bi-twitter-x"></i></a>
-              </li>
-              <li>
-                <a href="https://wa.me/+2348068736505" class="whatsapp"
-                  ><i class="bi bi-whatsapp"></i
-                ></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      </footer>
     </footer>
+
+    <script src="./JS/Booking.js"></script>
+    <script>
+  var form = document.getElementById("rideDetailsForm");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("result");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        status.innerHTML = "Thanks for your submission!";
+        form.reset()
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+          } else {
+            status.innerHTML = "Oops! There was a problem submitting your form"
+          }
+        })
+      }
+    }).catch(error => {
+      status.innerHTML = "Oops! There was a problem submitting your form"
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+</script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
