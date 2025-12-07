@@ -1,10 +1,18 @@
+<?php
+session_start();
+if (!isset($_SESSION["user_id"])){
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/CSS/Dashboard.css" />
+    <link rel="stylesheet" href="CSS/Dashboard.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -63,7 +71,7 @@
               <a class="nav-link" href="Contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a href="index.html" class="btnn">Get started</a>
+              <a href="index.html" class="btnn">Logout</a>
             </li>
           </ul>
         </div>
@@ -76,7 +84,7 @@
           <div class="row align-items-center">
             <div class="col-md-8">
               <div class="user-avatar-large">U</div>
-              <h1>Welcome, <span>User!</span></h1>
+              <h1>Welcome, <span><?= $_SESSION['username'] ?>!</span></h1>
               <p class="mb-0">
                 Ready for your next journey? Book a ride or view your ride
                 history below.

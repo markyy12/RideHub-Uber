@@ -91,8 +91,12 @@
         border-color: #0aac83;
       }
       /*BUTTON STYLING*/
+      .reg{
+        margin: auto;
+        display: flex;
+      }
       .btn {
-        margin: 10px;
+        text-align: center;
         padding: 12px 30px;
         border-radius: 50px;
         font-weight: 600;
@@ -101,36 +105,29 @@
         position: relative;
         overflow: hidden;
       }
-      .btn-success {
+      .btn-success, .btn-primary {
         background: #0aac83;
         border: none;
       }
 
-      .btn-success:hover {
+      .btn-success:hover, .btn-primary:hover {
         transform: translateY(-3px);
         background: #000;
+        border: 1px solid #fff;
       }
-      .btn-primary {
-        background: #0aac83;
-        border: none;
-        border-radius: 10px;
-        padding: 12px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
+      .already{
+        text-align: center;
+        color: #fff;
+      }
+      .already a{
+        color: #0aac83;
+        font-weight: 500;
         transition: all 0.3s;
+        text-decoration: none;
       }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        background: #000;
-      }
-      #registerBtn {
-        background: transparent;
-        border: 1px solid #0aac83;
-      }
-      #registerBtn:hover {
-        background: #0aac83;
-        border: 0;
+      .already a:hover{
+        color: #08916e;
+        text-decoration: underline;
       }
       .text-decoration-none {
         color: #0aac83;
@@ -139,7 +136,7 @@
       }
 
       .text-decoration-none:hover {
-        color: #000;
+        color: #08916e;
       }
 
       .form-check-input:checked {
@@ -148,7 +145,7 @@
       }
 
       p {
-        color: #666;
+        color: #fff;
         margin-top: 10px;
       }
 
@@ -189,22 +186,13 @@
         <h2 class="mb-5 text-center py-3">Create Account</h2>
         <form action="" method="POST">
           <div class="mb-4">
-            <label for="text" class="fw-bold form-label">First Name</label>
+            <label for="text" class="fw-bold form-label">Name</label>
             <input
               type="text"
               class="form-control"
-              placeholder="Enter your first name"
-              name="First Name"
-            />
-          </div>
-
-          <div class="mb-4">
-            <label for="text" class="fw-bold form-label">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter your last name"
-              name="Last Name"
+              placeholder="Enter your name"
+              name="name"
+              required
             />
           </div>
 
@@ -214,7 +202,9 @@
               type="email"
               class="form-control"
               name="email"
+              id="email"
               placeholder="*****@gmail.com"
+              required
             />
           </div>
           <div class="mb-4">
@@ -223,40 +213,22 @@
               type="password"
               class="form-control"
               name="password"
+              id="password"
               placeholder="********"
+              required
             />
           </div>
-          <div class="mb-4">
-            <label for="comfirm-Password" class="fw-bold form-label"
-              >Confirm password</label
-            >
-            <input
-              type="password"
-              class="form-control"
-              name="comfirm-Password"
-              placeholder="********"
-            />
-          </div>
-          <div class="btn-group d-flex justify-content-center">
+          <div class="reg">
             <button
-              type="button"
+              onclick="validateForm()"
+              type="submit"
               class="btn btn-success"
-              id="registerBtn"
-              data-bs-toggle="modal"
-              data-bs-target="#reg-modal"
             >
               Register
             </button>
-            <button
-              type="button"
-              class="btn btn-success my-3"
-              data-bs-toggle="modal"
-              data-bs-target="#reg-modal"
-            >
-              Login
-            </button>
           </div>
         </form>
+         <p class="already">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></p>
       </div>
 
       <img
@@ -268,9 +240,10 @@
       />
     </div>
 
+    <!--Login Form-->
     <div
       class="modal fade"
-      id="reg-modal"
+      id="loginModal"
       tabindex="-1"
       aria-labelledby="modal-title"
       aria-hidden="true"
@@ -298,7 +271,7 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="Email"
+                      name="email"
                       id="email"
                       placeholder="*****@gmail.com"
                       required
@@ -311,6 +284,7 @@
                     <input
                       type="text"
                       class="form-control"
+                      name="password"
                       placeholder="********"
                       required
                     />
@@ -326,7 +300,9 @@
                     >
                   </div>
                   <div class="mb-4">
-                    <a href="Dashboard.html" class="btn btn-primary w-100">Login</a>
+                    <button type="submit" class="btn btn-primary w-100"
+                      >Login</button
+                    >
                   </div>
                   <div class="text-center">
                     <a href="#" class="text-decoration-none"
@@ -344,6 +320,21 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function validateForm(){
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        if(name !== '' && email !== '' && password !== ''){
+          alert('Registeration Successful!');
+        }else{
+          alert('Please fill in all fields!');
+          event.preventDefault();
+        }
+      }
+    </script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
