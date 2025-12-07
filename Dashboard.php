@@ -48,30 +48,27 @@ if (!isset($_SESSION["user_id"])){
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav px-3 ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="Home.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="Dashboard.html"
+              <a class="nav-link active" aria-current="page" href="Dashboard.php"
                 >Dashboard</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Booking.html">Booking</a>
+              <a class="nav-link" href="Booking.php">Booking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="About.html">About us</a>
+              <a class="nav-link" href="About.php">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Services.html">Services</a>
+              <a class="nav-link" href="Services.php">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Vehicle.html">Vehicles</a>
+              <a class="nav-link" href="Vehicle.php">Vehicles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Contact.html">Contact</a>
+              <a class="nav-link" href="Contact.php">Contact</a>
             </li>
             <li class="nav-item">
-              <a href="index.html" class="btnn">Logout</a>
+              <a href="index.php" class="btnn">Logout</a>
             </li>
           </ul>
         </div>

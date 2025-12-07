@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RideHub - About Us</title>
-    <link rel="stylesheet" href=".CSS/About.css" />
+    <title>RideHub - Services</title>
+    <link rel="stylesheet" href="CSS/Services.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -34,37 +34,34 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav px-3 ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="Home.html">Home</a>
+              <a class="nav-link" href="Dashboard.php">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Dashboard.html">Dashboard</a>
+              <a class="nav-link" href="Booking.php">Booking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Booking.html">Booking</a>
+              <a class="nav-link" href="About.php">About us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"
-                >About us</a
+                >Services</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Services.html">Services</a>
+              <a class="nav-link" href="Vehicle.php">Vehicles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Vehicle.html">Vehicles</a>
+              <a class="nav-link" href="Contact.php">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a href="index.html" class="btnn">Logout</a>
+              <a href="index.php" class="btnn">Logout</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <section class="about-section">
+    <section class="services">
       <div class="container-fluid">
         <div class="uber-dots">
           <div class="uber-dot"></div>
@@ -79,111 +76,133 @@
         <div class="uber-car-icon">
           <i class="bi bi-geo-alt-fill"></i>
         </div>
-        <h1 class="text-center fw-bold">About</h1>
+        <h1 class="text-center fw-bold">Services</h1>
         <div class="flex">
-          <a href="index.html">Home</a>
+          <a href="http://127.0.0.1:5501/Index.html">Home</a>
           <span>></span>
-          <a href="" id="flex">About</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="about">
-      <div class="container-lg">
-        <div class="row mt-5 d-flex flex-md-row flex-column">
-          <div class="col">
-            <img
-              src="./Image/About.jpg"
-              alt=""
-              loading="lazy"
-              class="fluid-img d-md-block d-lg-block"
-            />
-          </div>
-          <div class="col" id="about-text">
-            <h3>About Us</h3>
-            <p>
-              Welcome to RideHub, where convenience meets reliability on every
-              journey. We take pride in offering seamless transportation
-              solutions tailored to your needs. Whether you're a local commuter
-              or a visitor exploring the city, our fleet of well-maintained
-              vehicles and professional drivers ensure a safe and comfortable
-              ride. Committed to punctuality and customer satisfaction, we
-              strive to redefine your taxi experience. Our user-friendly booking
-              platform and efficient dispatch system guarantee swift responses,
-              getting you to your destination with ease. Experience hassle-free
-              travel with Hii Taxi, where every ride is a journey in reliability
-              and comfort
-            </p>
-          </div>
+          <a href="" id="flex">Services</a>
         </div>
       </div>
     </section>
 
     <section class="service">
+      <h3>Our Services</h3>
       <div class="container-lg">
         <div class="row gap-3 p-4">
-          <div class="col border p-3 rounded-4">
+          <div class="col border p-3">
             <img
               src="./Image/oneway.webp"
               alt=""
               width="300px"
               loading="lazy"
             />
-            <h4>Safety First</h4>
+            <h4>One Way Taxi</h4>
             <p>
-              Your safety is our top priority. Our drivers undergo rigorous
-              screening and training, and our vehicles are meticulously
-              maintained to guarantee a secure journey.
+              Get to your destination promptly and comfortably with our One Way
+              service. Whether it's a quick trip or a longer journey, enjoy a
+              smooth and reliable ride with our professional drivers.
             </p>
           </div>
-          <div class="col border p-3 rounded-4">
+          <div class="col border p-3">
             <img src="./Image/roundtrip.webp" alt="" loading="lazy" />
-            <h4>Convenience</h4>
+            <h4>Round Trip Taxi</h4>
             <p>
-              Booking a taxi with us is effortless. Schedule your ride anytime
-              using our intuitive app or website.
+              Our Round Trip service ensures a hassle-free return journey. Ideal
+              for business meetings, day trips, or events, travel comfortably
+              both ways with our reliable taxi service.
             </p>
           </div>
-          <div class="col border p-3 rounded-4">
+          <div class="col border p-3">
             <img src="./Image/local.webp" alt="" loading="lazy" />
-            <h4>Affordability</h4>
+            <h4>Local Package</h4>
             <p>
-              We provide competitive rates with transparent pricing. Enjoy no
-              hidden fees or unexpected charges.
+              Our Local Package is perfect for errands, sightseeing, or local
+              events. Get reliable transportation within a specific area,
+              offering a convenient and cost-effective travel solution.
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="package">
+      <h3>Our Packages</h3>
+      <div class="container-lg">
         <div class="row gap-3 p-4">
-          <div class="col border p-3 rounded-4">
+          <div class="col border p-4">
+            <img src="./Image/ONEIH.webp" alt="" width="275px" loading="lazy" />
+            <h4>One Innovation Hub</h4>
+            <p>Starting at <del>N</del>1000</p>
+            <a href="" class="button">Book Now</a>
+          </div>
+          <div class="col border p-4">
             <img
-              src="./Image/oneway.webp"
+              src="./Image/Fedpoffa PS.jpeg"
+              alt=""
+              width="275px"
+              loading="lazy"
+            />
+            <h4>FEDPOFFA PS</h4>
+            <p>Starting at <del>N</del>1200</p>
+            <a href="" class="button">Book Now</a>
+          </div>
+          <div class="col border p-4">
+            <img
+              src="./Image/FEDPOFFA.jpg"
+              alt=""
+              width="275px"
+              loading="lazy"
+            />
+            <h4>FEDPOFFA Main Campus</h4>
+            <p>Starting at <del>N</del>1000</p>
+            <a href="" class="button">Book Now</a>
+          </div>
+        </div>
+
+        <div class="row gap-3 p-4">
+          <div class="col border p-4">
+            <img src="./Image/Owu.jpeg" alt="" width="275px" loading="lazy" />
+            <h4>Offa - Owu Waterfall</h4>
+            <p>Starting at <del>N</del>4500</p>
+            <a href="" class="button">Book Now</a>
+          </div>
+          <div class="col border p-4">
+            <img src="./Image/Esie.jpg" alt="" width="275px" loading="lazy" />
+            <h4>Offa - Esie Museum</h4>
+            <p>Starting at <del>N</del>3000</p>
+            <a href="" class="button">Book Now</a>
+          </div>
+          <div class="col border p-4">
+            <img
+              src="./Image//Ikogosi.jpg"
               alt=""
               width="300px"
               loading="lazy"
             />
-            <h4>Wide Coverage</h4>
-            <p>
-              Whether it's a city ride or an out-of-town trip, we've got you
-              covered. Our extensive service area meets all your transportation
-              needs.
-            </p>
+            <h4>Offa - Ikogusi Warm & Cold</h4>
+            <p>Starting at <del>N</del>5500</p>
+            <a href="" class="button">Book Now</a>
           </div>
-          <div class="col border p-3 rounded-4">
-            <img src="./Image/roundtrip.webp" alt="" loading="lazy" />
-            <h4>24/7 Support</h4>
-            <p>
-              Our dedicated customer support team is available around the clock
-              to assist you with any questions or concerns.
-            </p>
-          </div>
+        </div>
 
-          <div class="col border p-3" id="hidden">
-            <img src="./Image/roundtrip.webp" alt="" loading="lazy" />
-            <h4>24/7 Support</h4>
-            <p>
-              Our dedicated customer support team is available around the clock
-              to assist you with any questions or concerns.
-            </p>
+        <div class="row gap-3 p-4">
+          <div class="col border p-4">
+            <img src="./Image/KWASU.jpeg" alt="" width="275px" loading="lazy" />
+            <h4>Offa - KWASU</h4>
+            <p>Starting at <del>N</del>2000</p>
+            <a href="" class="button">Book Now</a>
+          </div>
+          <div class="col border p-4">
+            <img src="./Image/ilorin.jpg" alt="" width="275px" loading="lazy" />
+            <h4>Offa - Ilorin</h4>
+            <p>Starting at <del>N</del>2500</p>
+            <a href="" class="button">Book Now</a>
+          </div>
+          <div class="col border p-4">
+            <img src="./Image/Minna.jpg" alt="" width="275px" loading="lazy" />
+            <h4>Offa - Minna</h4>
+            <p>Starting at <del>N</del>15000</p>
+            <a href="" class="button">Book Now</a>
           </div>
         </div>
       </div>
@@ -209,10 +228,10 @@
           <div class="col-xs-6 col-md-3">
             <h6>Quick Links</h6>
             <ul class="footer-links">
-              <li><a href="#">About</a></li>
-              <li><a href="Booking.html">Booking</a></li>
-              <li><a href="Services.html">Our Services</a></li>
-              <li><a href="Vehicle.html">Our Vehicles</a></li>
+              <li><a href="About.php">About</a></li>
+              <li><a href="Booking.php">Booking</a></li>
+              <li><a href="#">Our Services</a></li>
+              <li><a href="Vehicle.php">Our Vehicles</a></li>
             </ul>
           </div>
           <div class="col-xs-6 col-md-3">
@@ -257,7 +276,6 @@
         </div>
       </div>
     </footer>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

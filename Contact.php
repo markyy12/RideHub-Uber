@@ -34,22 +34,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav px-3 ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="Home.html">Home</a>
+              <a class="nav-link" href="Dashboard.php">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Dashboard.html">Dashboard</a>
+              <a class="nav-link" href="Booking.php">Booking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Booking.html">Booking</a>
+              <a class="nav-link" href="About.php">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="About.html">About us</a>
+              <a class="nav-link" href="Services.php">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Services.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Vehicle.html">Vehicles</a>
+              <a class="nav-link" href="Vehicle.php">Vehicles</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"
@@ -57,7 +54,7 @@
               >
             </li>
             <li class="nav-item">
-              <a href="index.html" class="btnn">Logout</a>
+              <a href="index.php" class="btnn">Logout</a>
             </li>
           </ul>
         </div>
@@ -187,10 +184,10 @@
           <div class="col-xs-6 col-md-3">
             <h6>Quick Links</h6>
             <ul class="footer-links">
-              <li><a href="About.html">About</a></li>
-              <li><a href="Booking.html">Booking</a></li>
-              <li><a href="Services.html">Our Services</a></li>
-              <li><a href="Vehicle.html">Our Vehicles</a></li>
+              <li><a href="About.php">About</a></li>
+              <li><a href="Booking.php">Booking</a></li>
+              <li><a href="Services.php">Our Services</a></li>
+              <li><a href="Vehicle.php">Our Vehicles</a></li>
             </ul>
           </div>
           <div class="col-xs-6 col-md-3">
